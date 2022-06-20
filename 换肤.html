@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 263px;
+            height: 100px;
+            /* border: 1px solid red; */
+            margin: 100px auto;
+        }
+
+        .box img {
+            width: 30%;
+            height: 100px;
+        }
+
+        body {
+            background: no-repeat center top;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="image/4.jpg" alt="" id="i">
+        <img src="image/2.jpg" alt="" id="m">
+        <img src="image/3.jpg" alt="" id="g">
+    </div>
+</body>
+<script>
+    //获取div里的img
+    var img = document.querySelector('.box').querySelectorAll('img');
+    var body = document.body;
+    for (var i = 0; i < img.length; i++) {
+        img[i].onclick = function () {
+            //this.src是点击当前图片的路径
+            // 获取的路径的图片作为body的背景
+            body.style.backgroundImage = 'url(' + this.src + ')';
+        }
+    }
+</script>
+
+</html>

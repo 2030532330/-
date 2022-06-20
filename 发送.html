@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" name="" id="">
+    <button>发送</button>
+</body>
+<script>
+    var i = document.querySelector('input'); //自定义多少秒
+    var but = document.querySelector('button');
+    but.addEventListener('click', f);
+
+    function f() {
+        time = i.value; //赋予时间
+        but.disabled = true; //点击后禁用
+        i.disabled = true;
+        var t = setInterval(function () {
+            if (time < 0) {
+                alert('请重填');
+                time=0;
+            } else if (time == 0) { //时间到0就停止，并显示内容
+                clearInterval(t);
+                but.disabled = false;
+                i.disabled = false;
+                i.value = '';
+                but.innerHTML = '发送';
+                but.style.background = '';
+            } else {
+                but.style.background = 'blue';
+                but.style.color = 'black';
+                but.innerHTML = '还剩下' + time + '秒';
+                time--; //时间一直减
+            }
+        }, 1000);
+    }
+</script>
+
+</html>

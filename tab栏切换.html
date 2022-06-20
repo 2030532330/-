@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 358px;
+            position: absolute;
+            left: 50%;
+            margin-left: -160px;
+            top: 50%;
+            margin-top: -263px;
+
+        }
+
+        li:hover {
+            background: white;
+            color: rgba(214, 142, 234, 0.81);
+            cursor: pointer;
+        }
+
+        .ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 1043px;
+            height: 600px;
+            margin: 10px auto;
+            /* border: 1px solid red; */
+        }
+
+        .b {
+            width: 100%;
+            height: 574px;
+            /* border: 1px solid pink; */
+            display: inline-block;
+            position: relative;
+        }
+
+        li {
+            width: 200px;
+            height: 22px;
+            float: left;
+            margin: 1px 30px;
+            text-align: center;
+            border-bottom: 1px solid rgb(132, 209, 154);
+        }
+
+        /* .ul li:nth-child(1) {
+            background: rgb(127, 223, 227);
+        } */
+        /* .li {
+            background: rgb(113, 140, 226);
+        } */
+
+        .b .b1 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="ul">
+            <li class="li">首页</li>
+            <li>电子产品</li>
+            <li>家居产品</li>
+            <li>衣服鞋帽</li>
+        </ul>
+        <div class="b">
+            <div class="bx">欢迎</div>
+            <div class="b1"><img src="image/1.jpg" alt=""></div>
+            <div class="b1"><img src="image/2.jpg" alt=""></div>
+            <div class="b1"><img src="image/3.jpg" alt=""></div>
+            <div class="b1"><img src="image/4.jpg" alt=""></div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var ul = document.querySelector('ul');
+    var li = ul.querySelectorAll('li');
+    var b = document.querySelector('.b');
+    var div = b.querySelectorAll('.b1');
+    var bx=b.querySelector('.bx');
+    for (var i = 0; i < li.length; i++) {
+        li[i].setAttribute('index', i); //设置每个li的自定义属性 index='i'
+        li[i].onclick = function () {//点击对应li显示的效果
+            bx.style.display = 'none';
+            //排他思想
+            for (var j = 0; j < li.length; j++) { //干掉所有人
+                li[j].className = '';
+            }
+            this.className = 'li'; //保留我自己
+            var index = this.getAttribute('index'); //对应的div显示
+            //排他思想
+            for (var i = 0; i < div.length; i++) {
+                div[i].style.display = 'none';
+            }
+            div[index].style.display = 'block';
+        }
+        
+    }
+</script>
+
+</html>

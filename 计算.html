@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>算一算</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 300px;
+            /* border: 1px solid #ccc; */
+            margin: 100px auto;
+        }
+
+        input {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="number" name="" id="" class="num1" placeholder="输入第一个数">
+        <button class="b11">+</button>
+        <button class="b12">-</button>
+        <button class="b13">*</button>
+        <button class="b14">/</button>
+        <input type="number" name="" id="" class="num2" placeholder="输入第二个数">
+        <span>=</span>
+        <input type="text" name="" id="" class="num3" placeholder="结果" readonly="readonly">
+        <p></p>
+    </div>
+</body>
+<script>
+    var box = document.querySelector('.box');
+    var p = box.querySelector('p');
+    num1 = box.querySelector('.num1');
+    num2 = box.querySelector('.num2');
+    num3 = box.querySelector('.num3');
+    var b11 = box.querySelector('.b11');
+    var b12 = box.querySelector('.b12');
+    var b13 = box.querySelector('.b13');
+    var b14 = box.querySelector('.b14');
+
+    b11.addEventListener('click', f1);
+    b12.addEventListener('click', f2);
+    b13.addEventListener('click', f3);
+    b14.addEventListener('click', f4);
+
+    function f1() {
+        ff();
+        if (isNotNumber) {
+            alert('重新输入');
+            num1.value = '';
+            num2.value = '';
+            num3.value = '';
+        } else {
+            num3.value = n11 + n12;
+            p.innerHTML = num1.value + '+' + num2.value + '=' + num3.value;
+        }
+    }
+
+    function f2() {
+        ff();
+        if (isNotNumber) {
+            alert('重新输入');
+            num1.value = '';
+            num2.value = '';
+            num3.value = '';
+        } else {
+            num3.value = n11 - n12;
+            Math.pow(10, num3.value);
+            p.innerHTML = num1.value + '-' + num2.value + '=' + num3.value;
+        }
+    }
+
+    function f3() {
+        ff();
+        if (isNotNumber) {
+            alert('重新输入');
+            num1.value = '';
+            num2.value = '';
+            num3.value = '';
+        } else {
+            num3.value = n11 * n12;
+            p.innerHTML = num1.value + '*' + num2.value + '=' + num3.value;
+        }
+    }
+
+    function f4() {
+        ff();
+        if (isNotNumber) {
+            alert('重新输入');
+            num1.value = '';
+            num2.value = '';
+            num3.value = '';
+        } else {
+            num3.value = n11 / n12;
+            Math.pow(10, num3.value);
+            p.innerHTML = num1.value + '/' + num2.value + '=' + num3.value;
+        }
+    }
+
+    function ff() {
+        n1 = num1.value;
+        n2 = num2.value;
+        n3 = num3.value;
+        n11 = parseFloat(n1);
+        n12 = parseFloat(n2);
+        isNotNumber = isNaN(n11) || isNaN(n12);
+    }
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            background: rgb(120, 190, 226);
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () { //窗口加载
+            var div = document.querySelector('div');
+            window.addEventListener('resize', function () { //窗口大小
+                // console.log(window.innerWidth);
+                if (window.innerWidth < 1000) {
+                    div.style.background = '#ccc';
+                } else if (window.innerWidth > 1000 || window.innerHeight < 1500) {
+                    div.style.background = 'red';
+                } else {
+                    div.style.background = 'background: rgb(120, 190, 226)';
+                }
+            })
+            var t1 = setTimeout(function () { //定时器
+                alert('你好呀');
+                div.style.display = "none";
+            }, 3000)
+        })
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

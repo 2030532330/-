@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: rgb(205, 151, 151);
+        }
+    </style>
+</head>
+<div>
+    <input type="text" name="" id="">
+</div>
+
+<body>
+</body>
+<script>
+    var div = document.querySelector("div");
+    var input = div.querySelector("input");
+    document.addEventListener('keypress', k);//按键
+    function k(e) {
+        // console.log(e.keyCode);
+        if (e.keyCode ==' 97' || e.keyCode == 115 ||
+            e.keyCode == 119 || e.keyCode == 100) {
+            div.style.background = 'skyblue';
+           input.focus();
+        } else {
+            div.style.background = 'rgb(205, 151, 151)';
+        }
+    }
+</script>
+
+</html>

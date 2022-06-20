@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  <ul id="li">
+      <li >二十年</li>
+      <li>三年</li>
+      <li>四十年</li>
+  </ul>
+  <ol>
+      <li>膳食</li>
+      <li>火山</li>
+  </ol>
+  <script>
+      
+      var lis=document.getElementsByTagName('ol');//获取父元素ol
+      var lis2=lis[0].getElementsByTagName('li');//获取父元素里的子元素li
+      console.log(lis2);
+
+      var lis3=document.getElementById('li');//获取父元素ul的id li
+      var lis4=lis3.getElementsByTagName('li');//获取父元素里的子元素li
+      console.log(lis4);
+  </script>
+</body>
+
+</html>

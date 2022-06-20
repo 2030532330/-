@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言吧</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin: 10px 20px;
+        }
+
+        .speak {
+            background: wheat;
+            border: 1px solid white;
+            width: 100px;
+            height: 50px;
+            float: left;
+        }
+
+        .say {
+            resize: none;
+            border: 1px solid rgb(232, 202, 202);
+            float: left;
+            width: 300px;
+            height: 44px;
+            margin: 1px auto;
+        }
+
+        .look {
+            list-style: none;
+            width: 500px;
+            float: left;
+            /* height: 500px; */
+            /* border: 1px solid skyblue; */
+            /* position: relative;
+            top: 54px;
+            left: 0; */
+        }
+
+        .look li {
+            width: 100%;
+            height: 24px;
+            background: rgb(193, 211, 33);
+            margin: 5px 0;
+        }
+        .look li a {
+            color:black;
+            text-decoration: none;
+            float: right;
+        }
+        .look li a:hover {
+            text-decoration: underline;
+            color:red;
+            font-size: 20px;
+            font-weight: 700;
+            transition:all .5s;}
+    </style>
+</head>
+
+<body>
+    <div>
+        <button class="speak">发布</button>
+        <textarea name="" id="" cols="30" rows="10" class="say" placeholder="亲，留言你的想法"></textarea>
+        <ul class="look">
+        </ul>
+    </div>
+    
+</body>
+<script>
+    var button = document.querySelector('.speak');
+    var textarea = document.querySelector('.say');
+    var ul = document.querySelector('.look');
+    button.onclick = function () {
+        if (textarea.value =='') {//判断不能为空
+            alert('你想说什么呢');
+            return false;
+        } else {
+            // console.log(textarea.value);
+            var li = document.createElement('li');//创建li
+            li.innerHTML=textarea.value+"<a href='javascript:;'>撤回</a>";//赋值
+            // ul.appendChild(li);后面添加
+            ul.insertBefore(li, ul.firstChild);//前面添加
+         //给a添加删除事件
+         var a=document.querySelectorAll('a');
+         for(var i=0; i<a.length; i++){
+             a[i].onclick=function(){
+                 var b=this.parentNode;//删除当前a所在的li
+                 ul.removeChild(b);
+             }
+         }   
+        }
+    }
+</script>
+
+</html>

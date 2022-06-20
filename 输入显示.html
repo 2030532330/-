@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 300px;
+            height: 100px;
+            /* border: 1px solid #ccc; */
+            margin: 100px auto;
+        }
+
+        .box h5 {
+            text-align: center;
+        }
+
+        .box div {
+            width: 100%;
+            height: 46%;
+            border: 1px solid #ccc;
+            font-size: 20px;
+            color: red;
+            text-decoration: underline;
+            padding: 10px;
+            display: none;
+        }
+
+        .box input {
+            width: 100%;
+            height: 15%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h5>请输入内容</h5>
+        <div class="small"></div>
+        <input type="text" name="" id="" class="inp">
+    </div>
+</body>
+<script>
+    var div = document.querySelector('.small');
+    var input = document.querySelector('.inp');
+    input.addEventListener('keyup', f);
+
+    function f(e) {
+        if (input.value == '') {
+            div.style.display = 'none';
+        } else {
+            div.style.display = "block";
+            div.innerHTML = input.value;
+        }
+
+    }
+</script>
+
+</html>

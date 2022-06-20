@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    内置对象
+    <script>
+        var a1=prompt('第一个');
+        var a2=prompt('第二个');
+        var a=Math.max(a1,a2);
+        alert(a);
+    </script>
+    随机取整数,取数组的元素
+    <script>
+        function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+}
+var b= getRandomIntInclusive(a1,a2);
+alert(b);
+var c=['中国','美国','英国','俄罗斯'];
+alert(c[getRandomIntInclusive(0,c.length-1)]);
+
+    </script>
+</body>
+</html>

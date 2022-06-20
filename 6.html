@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>字面量创建对象</p> 
+    <script>
+        var obj = {
+            uname: '张三',
+            age: '18',
+            cook: function () {
+                alert('cook');
+            }
+        }
+        alert("这是年龄" + obj.age); //对象名.属性名
+        alert('这是名字' + obj['uname']); //对象名['属性名']
+        obj.cook(); //方法调用：对象名.方法名（）
+    </script>
+    <p>new Object创建对象</p> 
+    <script>
+        var obj1 = new Object();
+        obj1.name = '李四';
+        obj1.sex = 1;
+        obj1.work = function() {
+            alert('啥也不知道');
+        }
+        alert("这是" + obj1.name); //对象名.属性名
+        alert('这是' + obj1['sex']); //对象名['属性名']
+        obj1.work(); //方法调用：对象名.方法名（）
+    </script>
+    <p>构造函数创建对象</p>
+    <script>
+        function Class(name,sex,age) {
+            this.name=name;
+            this.sex=sex;
+            this.age=age;
+        }
+        var a=new Class('王五',17,'男');
+        var b=new Class('陆虎',16,'女');
+        alert(a.name);
+        alert(b.sex);
+    </script>
+</body>
+
+</html>

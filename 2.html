@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+    for(i=1;i<=10;i++){
+        if (i>5&&i<8) {
+            continue;
+            // break;
+        }
+       console.log(i);
+    }
+    </script> 
+    <script>
+        a=['w','r','ww','ws'];
+        for(i=0;i<a.length;i++){
+            alert(a[i]);
+        }
+    </script> -->
+    <!-- <script>
+        a = [10, 12, 23, 56, 144];
+        s = 0;
+        c = 0;
+        m = a[0];
+        alert('数组长度为：' + a.length);
+        for (i = 0; i < a.length; i++) {
+            s += a[i];
+        }
+        c = s / a.length;
+        alert('和：' + s);
+        alert('平均：' + c);
+        for (j = 1; j < a.length; j++) {
+            if (a[j] > m) {
+                m = a[j];
+            }
+        }
+        alert('最大值' + m);
+    </script> -->
+    <!-- <script>
+        a = [12,13,2,1,0,5];
+        c = [];
+        // j=0;
+        for (i = 0; i < a.length; i++) {
+            if (a[i] < 3) {
+                c[c.length] = a[i];
+                // j++;
+            }
+        }
+        alert(c);
+    </script> -->
+    <!-- 冒泡排序 -->
+    <script>
+        a=[1,3,433,56,44,52,12];
+        for(i=0;i<=a.length-1;i++){//趟数
+            for(j=0;j<=a.length-i-1;j++){//次数
+                if (a[j]>a[j+1]) {
+                    b=a[j];
+                    a[j]=a[j+1];
+                    a[j+1]=b;//交换2个变量
+                }
+            }
+        }
+        alert(a);
+    </script>
+</body>
+
+</html>

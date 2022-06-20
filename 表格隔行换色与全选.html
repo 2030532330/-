@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隔行换色与全选</title>
+    <style>
+        table {
+            width: 300px;
+            margin: 100px auto;
+        }
+
+        table td,
+        table th {
+            text-align: center;
+        }
+
+        table th {
+            border-bottom: 1px solid red;
+        }
+
+        .bg {
+            background: red;
+        }
+    </style>
+</head>
+<!-- cellspacing="0" cellpadding="0" -->
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>录用<input type="checkbox" name="" id="qx"></th>
+            </tr>
+        </thead>
+        <tbody id="q">
+            <tr>
+                <td>王虎</td>
+                <td>男</td>
+                <td>28</td>
+                <td><input type="checkbox" name=""></td>
+            </tr>
+            <tr>
+                <td>刘婷</td>
+                <td>女</td>
+                <td>22</td>
+                <td><input type="checkbox" name=""></td>
+            </tr>
+            <tr>
+                <td>程成</td>
+                <td>男</td>
+                <td>23</td>
+                <td><input type="checkbox" name=""></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    var td = document.querySelector('#q').querySelectorAll('tr'); //获取每行的内容
+    var qx = document.getElementById('qx'); //获取全选按钮
+    var q = document.getElementById('q').querySelectorAll('input'); //获取每行的复选框
+    for (var i = 0; i < td.length; i++) { //循环添加事件
+        td[i].onmouseover = function () { //鼠标经过
+            this.className = 'bg';
+        }
+        td[i].onmouseout = function () { //鼠标离开
+            this.className = '';
+        }
+    }
+    //qx的全选按钮影响q
+    qx.onclick = function () {
+        // console.log(this.checked);
+        //this.checked 得到当前复选框的状态
+        for (var i = 0; i < q.length; i++) {
+            q[i].checked = this.checked; //qx选中q就全部选中
+        }
+    }
+    //q的全选按钮影响qx
+    for (var j = 0; j < q.length; j++) {
+        q[j].onclick = function () {
+            var flag = true; //判断每个全选按钮是否被选中
+            for (var j = 0; j < q.length; j++) {
+                if (!q[j].checked) {
+                    flag = false;
+                    break;//退出循环，提高效率
+                }
+            }
+            qx.checked = flag;
+        }
+    }
+</script>
+
+</html>

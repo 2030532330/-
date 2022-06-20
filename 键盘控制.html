@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .b {
+            width: 1000px;
+            height: 50px;
+            border: 1px solid #ccc;
+            margin: 10px 100px;
+            position: relative;
+        }
+
+        .b .box {
+            width: 30px;
+            height: 30px;
+            background: black;
+            margin-top: 10px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="b">
+        <div class="box">
+        </div>
+    </div>
+</body>
+<script>
+    var b = document.querySelector('.b');
+    var box = b.querySelector('.box');
+    //对块级元素来说，offsetTop、offsetLeft、offsetWidth 及 offsetHeight 描述了元素相对于 offsetParent 的边界框。
+    //对于可被截断到下一行的行内元素（如 span），offsetTop 和 offsetLeft 描述的是第一个边界框的位置（使用 Element.getClientRects() 来获取其宽度和高度），
+    //而 offsetWidth 和 offsetHeight 描述的是边界框的尺寸（使用 Element.getBoundingClientRect 来获取其位置）。
+    //因此，使用 offsetLeft、offsetTop、offsetWidth、offsetHeight 来对应 left、top、width 和 height 的一个盒子将不会是文本容器 span 的盒子边界。
+    var left = box.offsetLeft;
+    document.addEventListener('keypress', k);
+    function k(e) {
+        // console.log(e.keyCode);
+        if (e.keyCode == '97') {
+            box.style.background = 'red';
+            left += 10;
+            left = left <= 0||left >= 968? 0 : left;
+            box.style.left = left + 'px';
+        } else if (e.keyCode == '100') {
+            box.style.background = 'pink';
+            left -= 10;
+            left = left <= 0||left >=968? 0 : left;
+            box.style.left = left + 'px';
+        } else {
+            alert('请按A键或D键');
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            /* background: pink; */
+            margin: 50px 100px;
+        }
+
+        .box .d,
+        .box .h,
+        .box .m,
+        .box .s {
+            width: 49px;
+            height: 49px;
+            /* border: 1px solid rgb(231, 20, 20); */
+            float: left;
+            display: inline;
+            margin: 90px 12px;
+            text-align: center;
+            padding: 2px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="d">t</div>
+        <div class="h">1</div>
+        <div class="m">2</div>
+        <div class="s">3</div>
+    </div>
+</body>
+<script>
+    var box = document.querySelector('.box');
+    var day=box.querySelector('.d');
+    var hour = box.querySelector('.h');
+    var min = box.querySelector('.m');
+    var sen = box.querySelector('.s');
+    var o='2022-06-06 09:00:00';
+    var it = +new Date(o); //将来毫秒
+    getOut(); //先调用，防止刷新页面时出现空白
+    //定时器
+    setInterval(getOut, 1000)
+
+    function getOut() {
+        var nt = +new Date(); //现在毫秒
+        var st = (it - nt) / 1000; //剩余秒数
+        var h = parseInt(st / 60 / 60 % 24); //时
+        var d = parseInt(st / 60 / 60 / 24); //天
+        d = d < 10 ? '0' + d : d;
+        day.innerHTML = d + '天';
+        h = h < 10 ? '0' + h : h;
+        hour.innerHTML = h + '时'; //把剩余的时间赋予给相对应的盒子
+        var m = parseInt(st / 60 % 60); //分
+        m = m < 10 ? '0' + m : m;
+        min.innerHTML = m + '分';
+        var s = parseInt(st % 60); //秒
+        s = s < 10 ? '0' + s : s;
+        sen.innerHTML = s + '秒';
+    }
+</script>
+<!-- <script>
+    var div=document.querySelector('div');
+    div.innerHTML ='你知道吗？';
+    function getOut(time) {
+        var nt=+new Date();//现在毫秒
+        var it=+new Date(time);//将来毫秒
+        var st=(it-nt)/1000;//剩余秒数
+        var d=parseInt(st/60/60/24);//天
+        d=d<10?'0'+d:d;
+        var h=parseInt(st/60/60%24);//时
+        h=h<10?'0'+h:h;
+        var m=parseInt(st/60%60);//分
+        m=m<10?'0'+m:m;
+        var s=parseInt(st%60);//秒
+        s=s<10?'0'+s:s;
+        return d+'天'+h+'时'+m+'分'+s+'秒';
+    }
+    alert(getOut('2022-6-12 19:00:00'));
+</script> -->
+
+</html>

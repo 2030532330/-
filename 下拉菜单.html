@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            color: #000000;
+            text-decoration: none
+        }
+
+        .ful li {
+            width: 200px;
+            height: 22px;
+            float: left;
+            margin: 1px 30px;
+            text-align: center;
+            /* border: 1px solid red; */
+            border-bottom: 1px solid rgb(128, 234, 158);
+        }
+
+        .ful li ul li {
+            margin: 6px auto;
+            background: white;
+            border-bottom: 1px solid skyblue;
+            /* display: none; */
+        }
+
+        .ful li ul li:hover {
+            background: rgb(44, 155, 196)
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="ful">
+        <li>
+            <a href="#">首页</a>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">购物</a>
+            <ul>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+                <li>d</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">反馈</a>
+            <ul>
+                <li>1a</li>
+                <li>2b</li>
+                <li>3c</li>
+                <li>4d</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<script>
+    var ful = document.querySelector('.ful');//获取第一个大的ul
+    var fli = ful.children;//获取ul的第一个孩子li
+    for (var i = 0; i < fli.length; i++) {
+        fli[i].onmouseover = function () {
+            this.children[1].style.display = "block";
+        }
+        fli[i].onmouseout = function () {
+            this.children[1].style.display = "none";
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            top: 100px;
+            left: 50px;
+            display: none;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .box img {
+            width: 50%;
+            height: 50%;
+        }
+
+        .box .box1 {
+            width: 150px;
+            height: 100px;
+            background: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="open">点击观看</button>
+    <div class="box">
+        <button class="close">X</button>
+        <img src="image/5.jpg" alt="">
+    </div>
+</body>
+<script>
+    var but1 = document.querySelector('.open');
+    var but2 = document.querySelector('.close');
+    var div = document.querySelector('.box');
+    but1.addEventListener('click', ff); //打开窗口
+
+    function ff() {
+        div.style.display = "block";
+    }
+    div.addEventListener('mousedown', f1);
+
+    function f1(e) {//按下时获取鼠标在盒子内的坐标
+        var x = e.pageX - div.offsetLeft,
+            y = e.pageY - div.offsetTop;
+
+        document.addEventListener('mousemove', m);//移动时的坐标
+        function m(e) {
+            div.style.left = e.pageX - x + 'px';
+            div.style.top = e.pageY - y + 'px';
+        }
+        document.addEventListener('mouseup', function (e) {//清除移动效果
+            document.removeEventListener('mousemove', m)
+        })
+    }
+
+
+    but2.addEventListener('click', f); //关闭窗口
+
+    function f() {
+        div.style.display = "none";
+    }
+</script>
+
+</html>

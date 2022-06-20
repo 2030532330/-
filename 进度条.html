@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易进度条</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .but {
+            width: 50px;
+            height: 50px;
+            margin: 50px 20px;
+        }
+
+        .box {
+            width: 300px;
+            height: 20px;
+            /* border: 1px solid #ccc; */
+            margin: 100px 20px;
+        }
+
+        .jd {
+            width: 1px;
+            height: 18px;
+            display: none;
+        }
+
+        .jdd {
+            animation: jdf 10s linear forwards;
+            display: block;
+        }
+
+        @keyframes jdf {
+            0% {
+                width: 0px;
+                height: 18px;
+                background: skyblue;
+            }
+
+            100% {
+                width: 298px;
+                height: 18px;
+                background: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="but">下载</button>
+    <div class="box">
+        <div class="jd"></div>
+    </div>
+</body>
+<script>
+    var button = document.querySelector('.but');
+    var box = document.querySelector('.box');
+    var jd = box.querySelector('.jd');
+    var i = 0;
+    button.addEventListener('click', fc);
+
+    function fc() {
+        jd.className = 'jd jdd';
+        var t = setInterval(function () {
+            if (i<100) {
+                i += 1;
+                jd.innerHTML = i + '%';
+            }else{
+                clearInterval(t);
+                alert('下载完成');
+            }
+
+        }, 100);
+    }
+</script>
+
+</html>

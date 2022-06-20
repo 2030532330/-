@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/dh.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 50px;
+            height: 50px;
+            background: rgb(46, 216, 235);
+            position: absolute;
+            top: 50px;
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="bt1">前进</button>
+    <button class="bt2">后退</button>
+    <div></div>
+</body>
+<script>
+    var div = document.querySelector('div');
+    var btn1 = document.querySelector('.bt1');
+    var btn2 = document.querySelector('.bt2');
+    //按钮添加事件，需使用回调函数
+    btn1.addEventListener('click', function () {
+        flex(div, 300,function () {
+            div.style.background='pink';
+        });
+    })
+    btn2.addEventListener('click', function () {
+        flex(div, 500);
+    })
+</script>
+
+</html>

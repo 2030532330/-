@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        function getSum(a, b) {
+            if (a >= b) {
+                alert('第一个数比第二个数大哟');
+            } else {
+                s = 0;
+                for (i = a; i <= b; i++) {
+                    s += i;
+                }
+            }
+            alert(s);
+        }
+        getSum(70, 80);
+    </script> -->
+    <script>
+        function getMax() {
+            m=arguments[0];
+           for(i=0;i<arguments.length;i++){
+               if (m<arguments[i]) {
+                   m=arguments[i];
+               }
+           }
+           return m;
+        }
+        n=getMax(3,5,1,2,55);
+        alert(n);
+    </script>
+</body>
+
+</html>

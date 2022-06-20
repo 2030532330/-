@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码显示与提示</title>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?bz426d');
+            src: url('fonts/icomoon.eot?bz426d#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?bz426d') format('truetype'),
+                url('fonts/icomoon.woff?bz426d') format('woff'),
+                url('fonts/icomoon.svg?bz426d#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .box .label,
+        .box .p {
+            font-family: 'icomoon';
+            display: inline;
+            /* position: absolute; */
+        }
+
+        /* .box .label {
+            top: -12px;
+            right: 30px;
+        } */
+
+        .box .p {
+            color: aqua;
+            font-size: small;
+            /* top: -12px;
+            right: 7px; */
+        }
+
+        .box {
+            width: 300px;
+            /* border: 1px solid red; */
+            border-bottom: 1px solid black;
+            margin: 100px auto;
+            /* position: relative; */
+        }
+
+        .box input {
+            width: 150px;
+            height: 20px;
+            border: 0;
+            outline: none;
+        }
+
+        .box .pp {
+            color: red;
+            font-size: small;
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="password" name="" id="input">
+        <label for="">
+            <p class="label"></p>
+        </label>
+        <p class="p">请输入5~10位密码</p>
+    </div>
+</body>
+<script>
+    var input = document.getElementById('input');
+    var p = document.querySelector('.label');
+    var pp = document.querySelector('.p');
+    var f = 0;
+    p.onclick = function () { //定义变量判断
+        if (f == 0) {
+            input.type = "text";
+            p.innerHTML = '';
+            f = 1;
+        } else {
+            input.type = "password";
+            p.innerHTML = '';
+            f = 0;
+        }
+    }
+    input.onblur = function () {
+        if (input.value.length < 5) {
+            pp.innerHTML = '密码长度不够';
+            pp.className = 'pp';
+        } else if (input.value.length > 10) {
+            pp.innerHTML = '密码长度太长';
+            pp.className = 'pp';
+        }else{
+            pp.innerHTML = '密码长度正确';
+        }
+    }
+</script>
+
+</html>

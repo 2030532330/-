@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var ing=prompt('请输入字符');
+        var a = ing;
+        var b = {};
+        var max = 0;
+        var m = '';
+        for (var i = 0; i < a.length; i++) {
+            var c = a.charAt(i);
+            if (b[c]) {
+                b[c]++;
+            } else {
+                b[c] = 1;
+            }
+        }
+        for (var k in b) {
+            if (b[k] > max) {
+                max = b[k];
+                m = k;
+            }
+        }
+        alert('字符最多是' + m + '，次数是' + max);
+    </script>
+</body>
+
+</html>

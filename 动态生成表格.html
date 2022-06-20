@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会员操作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: pink;
+        }
+
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid #333;
+        }
+
+        table tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+
+        tbody tr {
+            background-color: white;
+        }
+
+        tbody tr:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>是否为会员</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+<script>
+    var data = [{
+            name: '王涛',
+            sex: '男',
+            vip: '是'
+        },
+        {
+            name: '龙鹰',
+            sex: '男',
+            vip: '否'
+        }, {
+            name: '阿娟',
+            sex: '女',
+            vip: '是'
+        }, {
+            name: '阿T',
+            sex: '女',
+            vip: '否'
+        }
+    ]; //数组存储数据
+    //多少人就创建多少行
+    var tbody = document.querySelector('tbody');
+    for (var i = 0; i < data.length; i++) {
+        //创建tr行
+        var tr = document.createElement('tr');
+        tbody.appendChild(tr);
+        //遍历数组中的对象
+        for (var k in data[i]) {
+            var td = document.createElement('td');
+            td.innerHTML = data[i][k]; //填充数据
+            tr.appendChild(td); //创建td列
+        }
+        //添加单独的注销列
+        var td = document.createElement('td');
+        tr.appendChild(td);
+        td.innerHTML = '<a href="javascript:void">注销</a>';
+    }
+    //给“注销”添加事件
+    var a = document.querySelectorAll('a');
+    for (var i = 0; i < a.length; i++) {
+        a[i].onclick = function () {
+            var del = this.parentNode.parentNode;//a的爸爸是tr,tr的爸爸是tbody
+            tbody.removeChild(del);//操作的tr的爸爸
+        }
+    }
+</script>
+
+</html>

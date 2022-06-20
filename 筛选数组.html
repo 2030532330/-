@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=[100,200,300,400,50];
+        var b=[];
+        var c=[];
+        for(var i=0;i<a.length;i++){
+            if (a[i]<300) {
+                b.push(a[i]);
+                c.unshift(a[i]);
+            }
+        }
+        alert(b);
+        alert(c);
+    </script>
+</body>
+</html>
